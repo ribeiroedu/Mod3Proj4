@@ -2,15 +2,12 @@ const mongoose = require('mongoose');
 
 function connectToDatabase() {
   mongoose
-    .connect(
-      'mongodb+srv://root:admin@api-rickandmorty.j0zld.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      },
-    )
+    .connect(process.env.URI_DATABASE, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
     .then(() => {
-      console.log('MONGO DB CONECTADO');
+      console.log('MONGO DB ATLAS CONECTADO');
     })
     .catch((err) => {
       return console.log(`Erro na conexão com o banco: ${err}`);
