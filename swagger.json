@@ -15,12 +15,12 @@
       "description": "API de teste"
     },
     {
-      "url": "https://api-rickandmorty-mod3proj4.onrender.com",
+      "url": "https://api-rickandmorty-mod3proj4.onrender.com/characters",
       "description": "API de produção Render"
     }
   ],
   "paths": {
-    "/": {
+    "/characters": {
       "get": {
         "summary": "Buscar todos os personagens",
         "description": "Rota responsável por buscar todos os personagens",
