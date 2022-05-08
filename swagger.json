@@ -15,8 +15,8 @@
       "description": "API de teste"
     },
     {
-      "url": "",
-      "description": "API de produção"
+      "url": "https://api-rickandmorty-mod3proj4.onrender.com/characters/",
+      "description": "API de produção Render"
     }
   ],
   "paths": {
