@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/characters": {
+    "/": {
       "get": {
         "summary": "Buscar todos os personagens",
         "description": "Rota responsável por buscar todos os personagens",
