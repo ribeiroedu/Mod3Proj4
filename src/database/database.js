@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 
 function connectToDatabase() {
   mongoose
-    .connect('mongodb://localhost:27017/characters-db', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(
+      'mongodb+srv://root:admin@api-rickandmorty.j0zld.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+    )
     .then(() => {
       console.log('MONGO DB CONECTADO');
     })
