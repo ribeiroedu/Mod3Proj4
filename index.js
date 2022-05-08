@@ -6,6 +6,7 @@ const cors = require('cors');
 const port = process.env.PORT || 3000;
 const app = express();
 const characters = require('./src/routes/characters.routes');
+const users = require('./src/routes/users.routes');
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,6 +21,7 @@ const connectToDatabase = require('./src/database/database');
 connectToDatabase();
 
 app.use('/characters', characters);
+app.use('/users', users);
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

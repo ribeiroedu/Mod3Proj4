@@ -197,7 +197,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Character"
+                "$ref": "#/components/schemas/User"
               },
               "examples": {
                 "Users": {
