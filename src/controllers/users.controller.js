@@ -1,5 +1,6 @@
 const usersService = require('../services/users.service');
 const mongoose = require('mongoose');
+const authService = require('../services/auth.service');
 
 const createUserController = async (req, res) => {
   const { name, username, email, password, photo } = req.body;
