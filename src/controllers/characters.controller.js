@@ -24,6 +24,25 @@ const createCharacterController = async (req, res) => {
 };
 
 const findCharactersController = async (req, res) => {
+  try {
+    const character = await charactersService.findCharactersService();
+
+    if (character.name.length === 0) {
+      return res.status(400).send({ message: 'Não existem personagens!' });
+    }
+
+    return res.send({
+      results: character.map((character) => ({
+        id: character._id,
+        user: character.user,
+        name: character.likes.name,
+        imageUrl: character.name.length,
+      })),
+    });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+
   const allCharacters = await charactersService.findCharactersService();
   res.send(allCharacters);
 };

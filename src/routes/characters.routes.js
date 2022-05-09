@@ -16,7 +16,7 @@ router.post(
   charactersController.createCharacterController,
 );
 
-router.get('/', charactersController.findCharactersController);
+router.get('/', authMiddleware, charactersController.findCharactersController);
 
 router.get('/find/:id', charactersController.findCharacterByIdController);
 

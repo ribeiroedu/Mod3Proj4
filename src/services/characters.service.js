@@ -6,7 +6,7 @@ const createCharacterService = async (character, userId) => {
 };
 
 const findCharactersService = async () => {
-  const characters = await Character.find();
+  const characters = await Character.find().sort({ _id: -1 }).populate('user');
   return characters;
 };
 
