@@ -21,9 +21,9 @@ app.use(express.json());
 const connectToDatabase = require('./src/database/database');
 connectToDatabase();
 
-app.use('/characters', characters);
 app.use('/users', users);
 app.use('/auth', auth);
+app.use('/characters', characters);
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const charactersController = require('../controllers/characters.controller');
+const authMiddleware = require('../auth/auth.middleware');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../../swagger.json');
 
@@ -9,7 +10,11 @@ router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 // router.get('/', charactersController.homeCharacterController);
 
-router.post('/create', charactersController.createCharacterController);
+router.post(
+  '/create',
+  authMiddleware,
+  charactersController.createCharacterController,
+);
 
 router.get('/', charactersController.findCharactersController);
 
