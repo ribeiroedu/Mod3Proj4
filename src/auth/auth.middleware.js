@@ -22,6 +22,7 @@ module.exports = (req, res, next) => {
   }
 
   jwt.verify(token, process.env.SECRET, async (err, decoded) => {
+    //validação para o decoded
     const user = await findByIdUserService(decoded.id);
 
     if (err || !user || !user.id) {
