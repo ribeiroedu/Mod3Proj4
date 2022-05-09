@@ -29,7 +29,19 @@ const createUserController = async (req, res) => {
     });
   }
 
-  res.status(201).send(user);
+  const token = authService.generateToken(user._id);
+
+  res.status(201).send({
+    user: {
+      id: user.id,
+      name,
+      username,
+      email,
+      password,
+      photo,
+    },
+    token,
+  });
 };
 
 const findAllUserController = async (req, res) => {

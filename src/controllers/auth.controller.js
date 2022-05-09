@@ -1,5 +1,6 @@
 const authService = require('../services/auth.service');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 const loginController = async (req, res) => {
   const { email, password } = req.body;
@@ -16,7 +17,9 @@ const loginController = async (req, res) => {
     return res.status(400).send({ message: 'Senha inválida!' });
   }
 
-  res.send(user);
+  const token = authService.generateToken(user._id);
+
+  res.send({ token });
 };
 
 module.exports = { loginController };
