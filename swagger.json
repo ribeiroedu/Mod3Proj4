@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/characters",
+      "url": "http://localhost:3000",
       "description": "API de teste"
     },
     {
@@ -25,6 +25,7 @@
         "summary": "Buscar todos os personagens",
         "description": "Rota responsável por buscar todos os personagens",
         "tags": ["Characters"],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "404": {
             "description": "Not Found"
@@ -50,6 +51,7 @@
         "summary": "Busca um personagem por ID",
         "description": "Rota responsável por buscar um personagem por ID",
         "tags": ["Characters"],
+        "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
             "name": "id",
@@ -81,6 +83,7 @@
         "summary": "Criar um novo Personagem",
         "description": "Rota responsável por criar um novo personagem",
         "tags": ["Characters"],
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "content": {
             "application/json": {
@@ -122,6 +125,7 @@
         "summary": "Editar um personagem pelo ID",
         "description": "Rota responsável por editar um personagem pelo ID",
         "tags": ["Characters"],
+        "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
             "name": "id",
@@ -170,6 +174,7 @@
         "summary": "Apagar um personagem pelo ID",
         "description": "Rota responsável por apagar um personagem pelo ID",
         "tags": ["Characters"],
+        "security": [{ "bearerAuth": [] }],
         "parameters": [
           {
             "name": "id",
@@ -298,6 +303,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "Character": {
         "type": "object",
