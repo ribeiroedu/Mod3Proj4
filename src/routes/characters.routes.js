@@ -24,6 +24,12 @@ router.put('/update/:id', charactersController.updateCharacterController);
 
 router.delete('/delete/:id', charactersController.deleteCharacterController);
 
+router.get(
+  '/search',
+  authMiddleware,
+  charactersController.searchCharacterController,
+);
+
 // router.get('/find/:name', charactersController.findCharacterByNameController);
 
 module.exports = router;

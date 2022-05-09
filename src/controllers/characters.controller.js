@@ -115,24 +115,26 @@ const deleteCharacterController = async (req, res) => {
   res.send({ message: 'Character deletado com sucesso!' });
 };
 
-// const findCharacterByNameController = async (req, res) => {
-//   const nameParam = req.params.name;
+const searchCharacterController = async (req, res) => {
+  const { message } = req.query;
 
-//   if (!mongoose.Types.ObjectId.isValid(nameParam)) {
-//     res.status(400).send({ message: 'Name não encontrada!' });
-//     return;
-//   }
+  const character = await charactersService.searchCharacterService(message);
 
-//   const chosenCharacter = await charactersService.findCharacterByNameController(
-//     nameParam,
-//   );
+  if (character.length === 0) {
+    return res
+      .status(400)
+      .send({ message: 'Não existem personagens com esse nome!' });
+  }
 
-//   if (!chosenCharacter) {
-//     return res.status(404).send({ message: 'Character não encontrado!' });
-//   }
-
-//   res.send(chosenCharacter);
-// };
+  return res.send({
+    results: character.map((charac) => ({
+      id: charac._id,
+      user: charac.user,
+      name: charac.name,
+      imageUrl: charac.imageUrl,
+    })),
+  });
+};
 
 module.exports = {
   // homeCharacterController,
@@ -142,4 +144,5 @@ module.exports = {
   createCharacterController,
   updateCharacterController,
   deleteCharacterController,
+  searchCharacterController,
 };

@@ -10,6 +10,13 @@ const findCharactersService = async () => {
   return characters;
 };
 
+const searchCharacterService = (message) =>
+  Character.find({
+    name: { $regex: `${message || ''}`, $options: 'i' },
+  })
+    .sort({ _id: -1 })
+    .populate('user');
+
 const findCharacterByIdService = async (id) => {
   const character = await Character.findById(id);
   return character;
@@ -39,4 +46,5 @@ module.exports = {
   createCharacterService,
   updateCharacterService,
   deleteCharacterService,
+  searchCharacterService,
 };
