@@ -15,9 +15,10 @@ const createCharacterController = async (req, res) => {
     });
   }
 
-  const newCharacter = await charactersService.createCharacterService(
+  const newCharacter = await charactersService.createCharacterService({
     character,
-  );
+    user: userId,
+  });
 
   res.send(newCharacter);
 };
