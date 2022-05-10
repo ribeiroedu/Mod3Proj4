@@ -1,6 +1,8 @@
 # Mod3Proj4
 
-No terminal inserir comando "nodemon run dev".
 Verificar arquivo swagger.json para rotas e definições.
+
+Documentação disponível em:
+https://api-rickandmorty-mod3proj4.onrender.com/characters/api-docs/
 
 # Mod3Proj4
