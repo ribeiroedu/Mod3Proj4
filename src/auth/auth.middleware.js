@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
     const user = await findByIdUserService(decoded.id);
 
     if (err || !user || !user.id) {
-      return res.status(401).send({ message: 'Token inválido! 2' });
+      return res.status(401).send({ message: 'Token inválido!' });
     }
 
     req.userId = user.id;

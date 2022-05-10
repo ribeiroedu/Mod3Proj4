@@ -1,7 +1,7 @@
 const Character = require('../models/Characters');
 
-const createCharacterService = async (character, userId) => {
-  const characterCriado = await Character.create({ character, user: userId });
+const createCharacterService = async (charac) => {
+  const characterCriado = await Character.create(charac);
   return characterCriado;
 };
 

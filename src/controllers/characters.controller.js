@@ -7,18 +7,16 @@ const mongoose = require('mongoose');
 
 const createCharacterController = async (req, res) => {
   const character = req.body;
+  req.body.user = req.userId;
 
-  if (!character || !character.user || !character.name || !character.imageUrl) {
+  if (!character || !character.name || !character.imageUrl) {
     return res.status(400).send({
       message:
         'Você não preencheu todos os dados para adicionar um novo character à lista!',
     });
   }
 
-  const newCharacter = await charactersService.createCharacterService({
-    character,
-    user: userId,
-  });
+  const newCharacter = await charactersService.createCharacterService(req.body);
 
   res.send(newCharacter);
 };
